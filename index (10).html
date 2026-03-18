@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Diam Weli Business — Spécialiste en sécurité incendie, sécurité électronique et équipements de protection individuelle (EPI) à Matam, Sénégal." />
+  <title>Diam Weli Business | Sécurité & Protection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy:#08142E;--navy2:#0E2248;--fire:#E63946;--fire2:#FF6B35;
+      --gold:#C9A84C;--white:#F8F9FC;--grey:#A0AABB;--card-bg:#101E3A;
+      --font-display:'Bebas Neue',sans-serif;--font-body:'Outfit',sans-serif;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);background:var(--navy);color:var(--white);overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");opacity:0.03;pointer-events:none;z-index:9999}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:72px;background:rgba(8,20,46,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.2);transition:background 0.3s}
+    .nav-logo{display:flex;align-items:center;gap:12px}
+    .nav-logo .flame-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--fire),var(--fire2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+    .nav-logo .brand{font-family:var(--font-display);font-size:22px;letter-spacing:2px;background:linear-gradient(90deg,var(--white),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .nav-links{display:flex;gap:36px;list-style:none}
+    .nav-links a{font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--grey);transition:color 0.2s}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-cta{background:var(--fire);color:white !important;padding:10px 22px;border-radius:6px;font-weight:600 !important;transition:background 0.2s,transform 0.2s !important}
+    .nav-cta:hover{background:#c0303b !important;transform:translateY(-1px)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .hamburger span{display:block;width:26px;height:2px;background:var(--white);border-radius:2px;transition:all 0.3s}
+    .hero{min-height:100vh;display:flex;align-items:center;padding:120px 5vw 80px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;right:-10%;top:10%;width:650px;height:650px;background:radial-gradient(circle at 60% 40%,rgba(230,57,70,0.18) 0%,transparent 60%),radial-gradient(circle at 30% 70%,rgba(201,168,76,0.12) 0%,transparent 50%);animation:pulse-bg 6s ease-in-out infinite alternate}
+    @keyframes pulse-bg{from{transform:scale(1) rotate(0deg)}to{transform:scale(1.08) rotate(6deg)}}
+    .hero::after{content:'';position:absolute;right:0;top:0;bottom:0;width:42%;background:linear-gradient(160deg,rgba(14,34,72,0.6) 0%,rgba(8,20,46,0) 100%);border-left:1px solid rgba(201,168,76,0.15);clip-path:polygon(12% 0,100% 0,100% 100%,0 100%)}
+    .hero-content{position:relative;z-index:2;max-width:680px}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(230,57,70,0.12);border:1px solid rgba(230,57,70,0.4);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--fire);margin-bottom:28px;animation:fadeUp 0.6s ease both}
+    .hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--fire);animation:blink 1.4s ease-in-out infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+    .hero h1{font-family:var(--font-display);font-size:clamp(56px,9vw,110px);line-height:0.92;letter-spacing:2px;margin-bottom:28px;animation:fadeUp 0.7s ease 0.1s both}
+    .hero h1 span{display:block;background:linear-gradient(90deg,var(--fire) 0%,var(--fire2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p{font-size:17px;line-height:1.7;color:var(--grey);max-width:520px;margin-bottom:40px;animation:fadeUp 0.7s ease 0.2s both}
+    .hero-actions{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp 0.7s ease 0.3s both}
+    .btn-primary{background:linear-gradient(135deg,var(--fire),var(--fire2));color:white;padding:15px 34px;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:0.5px;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 8px 32px rgba(230,57,70,0.3)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(230,57,70,0.45)}
+    .btn-secondary{border:1.5px solid rgba(201,168,76,0.5);color:var(--gold);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:500;transition:background 0.2s,border-color 0.2s}
+    .btn-secondary:hover{background:rgba(201,168,76,0.1);border-color:var(--gold)}
+    .hero-stats{display:flex;gap:48px;flex-wrap:wrap;margin-top:64px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08);animation:fadeUp 0.7s ease 0.4s both}
+    .stat-num{font-family:var(--font-display);font-size:42px;letter-spacing:1px;color:var(--gold);line-height:1}
+    .stat-label{font-size:12px;font-weight:500;color:var(--grey);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+    .scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--grey);font-size:11px;letter-spacing:2px;text-transform:uppercase;animation:fadeIn 1s ease 1s both}
+    .scroll-hint::after{content:'';width:1px;height:40px;background:linear-gradient(var(--grey),transparent);animation:scroll-drop 2s ease-in-out infinite}
+    @keyframes scroll-drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+    section{padding:100px 5vw}
+    .section-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--fire);margin-bottom:14px}
+    .section-title{font-family:var(--font-display);font-size:clamp(36px,5vw,64px);letter-spacing:1.5px;line-height:1;margin-bottom:18px}
+    .section-sub{font-size:16px;line-height:1.7;color:var(--grey);max-width:560px}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    #services{background:var(--navy2)}
+    .services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;flex-wrap:wrap;gap:24px}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px}
+    .service-card{background:var(--card-bg);padding:44px 40px;position:relative;overflow:hidden;cursor:default;transition:transform 0.3s}
+    .service-card:hover{transform:translateY(-4px)}
+    .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--fire),var(--fire2));transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease}
+    .service-card:hover::before{transform:scaleX(1)}
+    .service-card .card-num{position:absolute;top:20px;right:24px;font-family:var(--font-display);font-size:72px;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none}
+    .card-icon{width:56px;height:56px;border-radius:14px;background:rgba(230,57,70,0.12);border:1px solid rgba(230,57,70,0.25);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:28px}
+    .service-card h3{font-family:var(--font-display);font-size:28px;letter-spacing:1px;margin-bottom:14px}
+    .service-card p{font-size:14.5px;line-height:1.7;color:var(--grey);margin-bottom:28px}
+    .service-card ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .service-card ul li{display:flex;align-items:center;gap:10px;font-size:13.5px;color:rgba(248,249,252,0.75)}
+    .service-card ul li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+    #why{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .why-visual{position:relative}
+    .why-big-text{font-family:var(--font-display);font-size:clamp(80px,12vw,160px);letter-spacing:2px;line-height:0.85;color:rgba(255,255,255,0.04);user-select:none;pointer-events:none}
+    .why-badge-stack{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;gap:16px;width:80%}
+    .why-badge{background:var(--card-bg);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:18px 22px;display:flex;align-items:center;gap:16px;transition:border-color 0.3s,transform 0.3s}
+    .why-badge:hover{border-color:var(--gold);transform:translateX(6px)}
+    .why-badge .icon{font-size:26px}
+    .why-badge .text strong{display:block;font-size:15px;font-weight:600}
+    .why-badge .text span{font-size:12.5px;color:var(--grey)}
+    .why-content .section-sub{margin-bottom:40px}
+    .why-points{display:flex;flex-direction:column;gap:20px}
+    .why-point{display:flex;gap:18px;align-items:flex-start}
+    .why-point .num{font-family:var(--font-display);font-size:32px;color:var(--fire);line-height:1;min-width:32px}
+    .why-point .detail strong{display:block;font-size:15px;font-weight:600;margin-bottom:4px}
+    .why-point .detail span{font-size:13.5px;color:var(--grey);line-height:1.6}
+    #process{background:var(--navy2)}
+    .process-header{text-align:center;margin-bottom:64px}
+    .process-header .section-sub{margin:0 auto}
+    .process-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+    .process-track::before{content:'';position:absolute;top:36px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,var(--fire),var(--gold),var(--fire))}
+    .process-step{text-align:center;padding:0 20px}
+    .step-circle{width:72px;height:72px;border-radius:50%;background:var(--card-bg);border:2px solid var(--fire);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:26px;color:var(--fire);margin:0 auto 24px;position:relative;z-index:1;transition:background 0.3s,color 0.3s}
+    .process-step:hover .step-circle{background:var(--fire);color:white}
+    .process-step h4{font-size:15px;font-weight:600;margin-bottom:8px}
+    .process-step p{font-size:13px;color:var(--grey);line-height:1.6}
+    #contact{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+    .contact-info h2{margin-bottom:20px}
+    .contact-info .section-sub{margin-bottom:40px}
+    .contact-details{display:flex;flex-direction:column;gap:20px}
+    .contact-item{display:flex;gap:16px;align-items:flex-start}
+    .contact-item .c-icon{width:44px;height:44px;flex-shrink:0;background:rgba(230,57,70,0.1);border:1px solid rgba(230,57,70,0.3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+    .contact-item .c-text strong{display:block;font-size:13px;color:var(--grey);font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+    .contact-item .c-text span{font-size:15px;color:var(--white)}
+    .contact-form{background:var(--card-bg);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:40px}
+    .contact-form h3{font-family:var(--font-display);font-size:28px;letter-spacing:1px;margin-bottom:28px}
+    .form-group{margin-bottom:18px}
+    .form-group label{display:block;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--grey);margin-bottom:8px}
+    .form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px 16px;font-family:var(--font-body);font-size:14px;color:var(--white);outline:none;transition:border-color 0.2s}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.25)}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--fire)}
+    .form-group select option{background:var(--navy2)}
+    .form-group textarea{resize:vertical;min-height:110px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .form-submit{width:100%;background:linear-gradient(135deg,var(--fire),var(--fire2));color:white;border:none;padding:14px;border-radius:8px;font-family:var(--font-body);font-size:15px;font-weight:600;cursor:pointer;margin-top:8px;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 6px 24px rgba(230,57,70,0.3)}
+    .form-submit:hover{transform:translateY(-1px);box-shadow:0 10px 32px rgba(230,57,70,0.45)}
+    .form-success{display:none;text-align:center;padding:20px;color:var(--gold);font-size:16px;background:rgba(201,168,76,0.1);border-radius:8px;margin-top:16px}
+    footer{background:#050E1E;padding:60px 5vw 36px;border-top:1px solid rgba(255,255,255,0.06)}
+    .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .footer-brand .brand-name{font-family:var(--font-display);font-size:28px;letter-spacing:2px;background:linear-gradient(90deg,var(--white),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+    .footer-brand p{font-size:13.5px;color:var(--grey);line-height:1.7;max-width:280px}
+    .footer-col h4{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+    .footer-col ul{list-style:none}
+    .footer-col ul li{margin-bottom:10px;font-size:13.5px;color:var(--grey);cursor:default;transition:color 0.2s}
+    .footer-col ul li:hover{color:var(--white)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:12.5px;color:rgba(255,255,255,0.3)}
+    .footer-bottom span.fire{color:var(--fire)}
+    @media(max-width:900px){
+      .nav-links{display:none}.hamburger{display:flex}
+      .nav-links.open{display:flex;flex-direction:column;position:fixed;inset:72px 0 0;background:var(--navy);padding:40px 5vw;gap:28px}
+      #why,#contact{grid-template-columns:1fr;gap:48px}
+      .why-visual{display:none}
+      .process-track{grid-template-columns:1fr 1fr;gap:40px}
+      .process-track::before{display:none}
+      .footer-top{grid-template-columns:1fr;gap:36px}
+      .form-row{grid-template-columns:1fr}
+    }
+    @media(max-width:600px){
+      .hero-stats{gap:28px}.services-grid{grid-template-columns:1fr}.process-track{grid-template-columns:1fr}
+    }
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-logo">
+      <div class="flame-icon">🔥</div>
+      <span class="brand">DWB</span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">À propos</a></li>
+      <li><a href="#process">Notre démarche</a></li>
+      <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge">Matam, Sénégal</div>
+      <h1>DIAM WELI<span>BUSINESS</span></h1>
+      <p>Votre partenaire de confiance en <strong>sécurité incendie</strong>, <strong>sécurité électronique</strong> et <strong>équipements de protection individuelle</strong> pour les entreprises, chantiers et institutions de la région de Matam.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Demander un devis</a>
+        <a href="#services" class="btn-secondary">Nos services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="stat-num">3+</div><div class="stat-label">Domaines d'expertise</div></div>
+        <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Matériaux certifiés</div></div>
+        <div class="stat-item"><div class="stat-num">24h</div><div class="stat-label">Réactivité sur site</div></div>
+      </div>
+    </div>
+    <div class="scroll-hint">Défiler</div>
+  </section>
+
+  <section id="services">
+    <div class="services-header">
+      <div>
+        <p class="section-label">Ce que nous faisons</p>
+        <h2 class="section-title">NOS DOMAINES<br>D'EXPERTISE</h2>
+      </div>
+      <p class="section-sub">Des solutions complètes et adaptées à chaque secteur — BTP, hôtellerie, ONG, collectivités — pour garantir la sécurité des personnes et des biens.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="card-num">01</div>
+        <div class="card-icon">🔥</div>
+        <h3>SÉCURITÉ INCENDIE</h3>
+        <p>Audit, installation et maintenance de systèmes de protection incendie conformes aux normes en vigueur.</p>
+        <ul>
+          <li>Extincteurs & RIA (robinets incendie armés)</li>
+          <li>Détection automatique d'incendie</li>
+          <li>Sprinklers & systèmes d'extinction</li>
+          <li>Formation du personnel aux gestes de première intervention</li>
+          <li>Plans d'évacuation & signalisation de sécurité</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="card-num">02</div>
+        <div class="card-icon">📡</div>
+        <h3>SÉCURITÉ ÉLECTRONIQUE</h3>
+        <p>Systèmes intelligents de surveillance et de contrôle pour protéger vos locaux 24h/24.</p>
+        <ul>
+          <li>Vidéosurveillance (CCTV) & IP</li>
+          <li>Contrôle d'accès (badges, biométrie)</li>
+          <li>Alarmes anti-intrusion</li>
+          <li>Interphonie & visiophones</li>
+          <li>Câblage structuré & réseaux</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="card-num">03</div>
+        <div class="card-icon">🦺</div>
+        <h3>ÉQUIPEMENTS DE PROTECTION (EPI)</h3>
+        <p>Fourniture d'équipements homologués pour la protection individuelle des travailleurs sur tous types de chantiers.</p>
+        <ul>
+          <li>Casques, lunettes & visières</li>
+          <li>Vêtements de travail & combinaisons</li>
+          <li>Chaussures & bottes de sécurité</li>
+          <li>Harnais & équipements anti-chute</li>
+          <li>Kits de premiers secours</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="why-visual reveal">
+      <div class="why-big-text">DWB</div>
+      <div class="why-badge-stack">
+        <div class="why-badge"><span class="icon">🛡️</span><div class="text"><strong>Matériaux certifiés</strong><span>Normes NF, CE et ISO</span></div></div>
+        <div class="why-badge"><span class="icon">📍</span><div class="text"><strong>Présence locale</strong><span>Basé à Matam — intervention rapide</span></div></div>
+        <div class="why-badge"><span class="icon">🤝</span><div class="text"><strong>Accompagnement sur mesure</strong><span>De l'audit à la maintenance</span></div></div>
+        <div class="why-badge"><span class="icon">🏗️</span><div class="text"><strong>Expérience sectorielle</strong><span>BTP, hôtels, ONG, institutions</span></div></div>
+      </div>
+    </div>
+    <div class="why-content reveal">
+      <p class="section-label">Pourquoi nous choisir</p>
+      <h2 class="section-title">UNE EXPERTISE LOCALE, DES STANDARDS INTERNATIONAUX</h2>
+      <p class="section-sub">Diam Weli Business combine la proximité d'un acteur régional avec la rigueur des standards internationaux de sécurité.</p>
+      <div class="why-points">
+        <div class="why-point"><div class="num">01</div><div class="detail"><strong>Audit préalable systématique</strong><span>Chaque mission commence par une évaluation précise de vos risques et besoins spécifiques.</span></div></div>
+        <div class="why-point"><div class="num">02</div><div class="detail"><strong>Solutions clés en main</strong><span>De la conception à l'installation, en passant par la formation et le suivi de maintenance.</span></div></div>
+        <div class="why-point"><div class="num">03</div><div class="detail"><strong>Matériaux de qualité certifiée</strong><span>Nous ne travaillons qu'avec des équipements homologués.</span></div></div>
+        <div class="why-point"><div class="num">04</div><div class="detail"><strong>Réactivité & disponibilité</strong><span>Notre équipe locale assure une intervention rapide en cas d'urgence ou de panne.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="process-header reveal">
+      <p class="section-label">Notre méthode</p>
+      <h2 class="section-title">COMMENT NOUS TRAVAILLONS</h2>
+      <p class="section-sub">Un processus structuré pour garantir une intervention efficace, rapide et durable.</p>
+    </div>
+    <div class="process-track">
+      <div class="process-step reveal"><div class="step-circle">1</div><h4>Prise de contact</h4><p>Échange initial pour comprendre vos besoins et fixer un rendez-vous de visite.</p></div>
+      <div class="process-step reveal"><div class="step-circle">2</div><h4>Audit & Diagnostic</h4><p>Évaluation complète de vos installations et identification des risques.</p></div>
+      <div class="process-step reveal"><div class="step-circle">3</div><h4>Proposition & Devis</h4><p>Solution personnalisée avec devis détaillé et transparent, sans surprise.</p></div>
+      <div class="process-step reveal"><div class="step-circle">4</div><h4>Installation & Suivi</h4><p>Mise en œuvre par nos techniciens et maintenance préventive régulière.</p></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-info reveal">
+      <p class="section-label">Nous joindre</p>
+      <h2 class="section-title">PARLONS DE VOTRE PROJET</h2>
+      <p class="section-sub">Que vous ayez besoin d'un audit, d'un équipement ou d'un contrat de maintenance, notre équipe est disponible pour vous accompagner.</p>
+      <div class="contact-details" style="margin-top:36px;">
+        <div class="contact-item">
+          <div class="c-icon">📍</div>
+          <div class="c-text"><strong>Adresse</strong><span>Matam, Région de Matam, Sénégal</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon">📞</div>
+          <div class="c-text"><strong>Téléphone / WhatsApp</strong><span>+221 77 546 96 33</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon">📧</div>
+          <div class="c-text"><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="74101d15190311181d1601071d1a110707341319151d185a171b19">[email&#160;protected]</a></span></div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon">🕐</div>
+          <div class="c-text"><strong>Horaires</strong><span>Lundi – Vendredi : 08h00 – 18h00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULAIRE FORMSPREE -->
+    <div class="contact-form reveal">
+      <h3>ENVOYER UN MESSAGE</h3>
+      <form id="contact-form" action="https://formspree.io/f/xaqpajkw" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nom complet</label>
+            <input type="text" name="nom" placeholder="Ex : Ibrahima Diallo" required />
+          </div>
+          <div class="form-group">
+            <label>Entreprise / Structure</label>
+            <input type="text" name="entreprise" placeholder="Votre société ou organisation" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Téléphone / WhatsApp</label>
+            <input type="tel" name="telephone" placeholder="+221 77 546 96 33" required />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="exemple@email.com" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Service souhaité</label>
+          <select name="service" required>
+            <option value="">-- Sélectionner un service --</option>
+            <option>Sécurité incendie</option>
+            <option>Sécurité électronique</option>
+            <option>Équipements de protection individuelle (EPI)</option>
+            <option>Audit de sécurité</option>
+            <option>Contrat de maintenance</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Votre message</label>
+          <textarea name="message" placeholder="Décrivez brièvement votre projet ou votre besoin…" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Envoyer la demande →</button>
+        <div class="form-success" id="form-success">✅ Merci ! Votre message a bien été envoyé. Nous vous répondrons sous 24h.</div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">DIAM WELI BUSINESS</div>
+        <p>Spécialiste en sécurité incendie, sécurité électronique et équipements de protection individuelle. Basé à Matam, au service de toute la région.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li>Sécurité Incendie</li><li>Sécurité Électronique</li>
+          <li>Équipements de Protection (EPI)</li><li>Audit de Sécurité</li>
+          <li>Maintenance Préventive</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Secteurs</h4>
+        <ul>
+          <li>BTP & Chantiers</li><li>Hôtellerie</li>
+          <li>ONG & Associations</li><li>Institutions publiques</li>
+          <li>Entreprises & Commerces</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Diam Weli Business — Tous droits réservés. Fait avec <span class="fire">❤</span> à Matam</span>
+      <span>NINEA : XXXXXXXXX</span>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    function toggleMenu(){document.getElementById('nav-links').classList.toggle('open')}
+    document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',()=>{document.getElementById('nav-links').classList.remove('open')})});
+    const observer=new IntersectionObserver((entries)=>{entries.forEach((e)=>{if(e.isIntersecting){const siblings=[...e.target.parentElement.querySelectorAll('.reveal')];const idx=siblings.indexOf(e.target);setTimeout(()=>e.target.classList.add('visible'),idx*100);observer.unobserve(e.target)}})},{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    window.addEventListener('scroll',()=>{const nav=document.getElementById('navbar');nav.style.boxShadow=window.scrollY>40?'0 4px 32px rgba(0,0,0,0.4)':'none'});
+
+    // Formspree AJAX
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      btn.textContent = 'Envoi en cours…';
+      btn.disabled = true;
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          document.getElementById('form-success').style.display = 'block';
+          form.reset();
+          btn.textContent = 'Envoyer la demande →';
+          btn.disabled = false;
+        } else {
+    
